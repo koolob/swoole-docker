@@ -15,9 +15,9 @@ RUN cd ${WORK_HOME} \
 	&& ldconfig
 
 RUN cd ${WORK_HOME} \
-	&& wget https://pecl.php.net/get/swoole-1.8.3.tgz \
-	&& tar zxvf swoole-1.8.3.tgz \
-	&& cd swoole-1.8.3 \
+	&& wget https://pecl.php.net/get/swoole-1.8.4.tgz \
+	&& tar zxvf swoole-1.8.4.tgz \
+	&& cd swoole-1.8.4 \
 	&& phpize \
 	&& ./configure --enable-async-redis --enable-async-httpclient --enable-openssl \
 	&& make \

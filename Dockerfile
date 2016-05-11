@@ -15,11 +15,19 @@ RUN cd ${WORK_HOME} \
 	&& ldconfig
 
 RUN cd ${WORK_HOME} \
+	&& wget https://github.com/jemalloc/jemalloc/releases/download/4.0.4/jemalloc-4.0.4.tar.bz2 \
+	&& tar -xjf jemalloc-4.0.4.tar.bz2 \
+	&& cd jemalloc-4.0.4 \
+	&& ./configure \
+	&& make -j install \
+	&& ldconfig
+
+RUN cd ${WORK_HOME} \
 	&& wget https://pecl.php.net/get/swoole-1.8.4.tgz \
 	&& tar zxvf swoole-1.8.4.tgz \
 	&& cd swoole-1.8.4 \
 	&& phpize \
-	&& ./configure --enable-async-redis --enable-async-httpclient --enable-openssl \
+	&& ./configure --enable-async-redis --enable-async-httpclient --enable-openssl --enable-jemalloc \
 	&& make \
 	&& make install
 

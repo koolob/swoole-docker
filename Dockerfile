@@ -1,4 +1,4 @@
-FROM php:7.1-cli
+FROM php:7.2-cli
 MAINTAINER koolob
 RUN apt-get update 
 RUN pecl install redis \
